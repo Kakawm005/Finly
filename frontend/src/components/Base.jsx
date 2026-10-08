@@ -7,8 +7,8 @@ function Base ({children}) {
                 <a href=""><div>Dashboard</div></a>
                 <a href=""><div>Lançamentos</div></a>
                 <a href=""><div>Contas</div></a>
-                <a href=""><div>Cartão</div></a>
-                <a href=""><div>Cartão de crédito</div></a>
+                <a href=""><div>Categorias</div></a>
+                <a href=""><div>Cartão de Crédito</div></a>
                 <p>@Finly todos os direitos reservados</p>
             </header>
             <main>
