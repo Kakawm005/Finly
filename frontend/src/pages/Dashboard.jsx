@@ -5,7 +5,7 @@ function Dashboard () {
         <>
         <Base>
             <main>
-                adsdsa
+                <h1>Dashboard</h1>
             </main>
         </Base>
         </>
