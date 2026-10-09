@@ -1,5 +1,9 @@
 main {
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(157, 51, 51);
+}
+
+.dashboard {
+    display: flex;
 }
 
 h1 {
@@ -11,6 +15,18 @@ header {
     background-color: brown;
 }
 
-.set-card {
+.important-card {
     display: flex;
+}
+
+.content-card {
+
+}
+
+.total-balance{
+    width: 1015px;
+    height: 375px ;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: white;
 }

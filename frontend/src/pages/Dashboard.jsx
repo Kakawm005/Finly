@@ -1,5 +1,6 @@
 import Base from '../components/Base'
 import Card from '../components/Card'
+import MyCards from '../components/MyCards'
 
 import './dashboard.css'
 
@@ -11,12 +12,22 @@ function Dashboard () {
                 <header>
                     <h1>Dashboard</h1>
                 </header>
-                <div className='set-card'>
-                    <Card/>                             
-                    <Card/>                             
-                    <Card/>                             
+                <div className='dashboard'>
+                    <div className='content-card'>
+                        <div className='important-card'>
+                            <Card name_card="Income" value="41,200" percentage="7.1%"/> 
+                            <Card name_card="Expenses" value="23,200" percentage="2.3%"/> 
+                            <Card name_card="Savings" value="9,800" percentage="1.8%"/> 
+                        </div>
+                        <div className='important-card'>
+                            <div className="total-balance">
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <MyCards/>
                 </div>
-                <Card/>   
             </main>
         </Base>
         </>

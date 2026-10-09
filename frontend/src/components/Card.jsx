@@ -1,10 +1,12 @@
 import './card.css'
 
-function Card () {
+function Card ({name_card, value, percentage}) {
     return (
         <>
         <section className='card'>
-            <h2>asdads</h2>
+            <p>{name_card}</p>
+            <p>{value}</p>
+            <p>{percentage}</p>
         </section>
         </>
     )
