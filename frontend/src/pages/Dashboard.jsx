@@ -1,4 +1,6 @@
 import Base from '../components/Base'
+import Card from '../components/Card'
+
 import './dashboard.css'
 
 function Dashboard () {
@@ -6,15 +8,15 @@ function Dashboard () {
         <>
         <Base>
             <main>
-                <h1>Dashboard</h1>
+                <header>
+                    <h1>Dashboard</h1>
+                </header>
                 <div className='set-card'>
-                    <div className="card"></div>
-                    <div className="card"></div>                                
+                    <Card/>                             
+                    <Card/>                             
+                    <Card/>                             
                 </div>
-                <div className='set-card'>
-                    <div className="card"></div>
-                    <div className="card"></div>                                
-                </div>
+                <Card/>   
             </main>
         </Base>
         </>

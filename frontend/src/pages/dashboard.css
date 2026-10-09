@@ -1,19 +1,16 @@
 main {
-    text-align: center;
-    align-content: center ;
+    background-color: rgb(224, 224, 224);
 }
 
 h1 {
     color: rgb(24, 75, 151);
 }
 
-.set-card {
-    display: flex;
+
+header {
+    background-color: brown;
 }
 
-.card {
-    background-color: brown;
-    width: 600px;
-    height: 275px;
-    margin: 20px;
+.set-card {
+    display: flex;
 }

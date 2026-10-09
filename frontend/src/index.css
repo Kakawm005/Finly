@@ -1,21 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0px;
+  padding: 12px;
   background-color: rgb(255, 255, 255);
   font-family: 'Inter', sans-serif;
 }
 
 .container {
-  width: 100%;
-  height: 750px;
   display: flex;
+  width: 100%;
+  min-height: calc(100vh - 20px);
+  height: auto;
+
   background-color: rgb(255, 255, 255);
-  margin: 0 auto;
   border-radius: 20px;
   box-shadow: 11px 9px 21px 6px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
 }
 
-.container header {
+.container > header {
   background-color: rgb(35, 105, 209);
   text-align: center;
   justify-content: center;
@@ -43,12 +51,19 @@ body {
 .container header a div {
   color: white;
   padding: 20px;
+  transition: background-color 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
 .container header a div:hover {
   background-color: rgb(30, 94, 190);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 94, 190, 0.25);
 }
 
 .container header a div:active {
-  background-color: rgb(20, 65, 133);
+  background-color: rgb(24, 81, 167);
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
 }
