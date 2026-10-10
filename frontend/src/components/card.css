@@ -4,4 +4,62 @@
     margin: 10px;
     border-radius: 20px;
     background-color: white;
+    display: flex;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.nav-money {
+    width: 230px;
+    height: 175px;
+}
+
+.btn{
+    height: 50px;
+    width: 50px;
+    margin: 15px 0px 0px 30px;
+}
+
+.card-name {
+    margin: 30px 0px 0px 25px;
+    font-size: 18px;
+    color:  rgb(92, 92, 92);
+}
+
+.link{
+    height: 50px;
+    width: 50px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 100%;
+    border: 1px solid black;
+    font-size: 35px;
+    color: black;
+    transition: background-color 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.link:hover {
+    background-color: rgb(30, 94, 190);
+    box-shadow: 0 4px 12px rgba(30, 94, 190, 0.25);
+}
+
+.link:active {
+    background-color: rgb(24, 81, 167);
+    transform: translateY(0) scale(0.98);
+    box-shadow: none;
+}
+
+.card-value {
+    margin: 40px 0px 0px 25px;
+    font-size: 50px;
+}
+
+.card-percentage {
+    margin: 60px 0px 0px 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
 }
