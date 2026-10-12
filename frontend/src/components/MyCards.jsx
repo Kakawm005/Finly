@@ -3,9 +3,26 @@ import './mycards.css'
 function MyCards () {
     return (
         <>
-        <section className='my-cards'>
+        <div className='my-cards'>
+            <nav>
+                <h2>My Cards</h2>
+                <a href=''><div className="add-cards">+ Add Card</div></a>
+            </nav>
+            <div className='cards'>
+                <div className="card1">
+                    <div className="card2">
+                    </div>
+                </div>
 
-        </section>
+
+            </div>
+            <div className="money-config">
+
+            </div>
+            <div className="income-expenses">
+
+            </div>
+        </div>
         </>
     )
 }

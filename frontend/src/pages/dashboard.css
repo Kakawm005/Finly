@@ -4,6 +4,7 @@ main {
 
 .dashboard {
     display: flex;
+    
 }
 
 h1 {
@@ -12,7 +13,7 @@ h1 {
 
 
 header {
-    background-color: brown;
+    padding: 20px;
 }
 
 .important-card {

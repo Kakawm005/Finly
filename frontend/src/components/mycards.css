@@ -5,3 +5,60 @@
     border-radius: 20px;
     background-color: white;
 }
+
+.my-cards nav {
+    display: flex;
+    margin: 30px 0px 0px 15px;
+}
+
+.my-cards nav h2 {
+    margin: 0;
+}
+
+.my-cards nav a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.my-cards nav a div {
+    background-color: rgb(236, 235, 245);
+    margin: 0px 0px 0px 75px;
+    border: 0px;
+    padding: 8px 12px 7px 9px;
+    border-radius: 20px;
+    transition: background-color 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.my-cards nav a div:hover {
+    background-color: rgb(30, 94, 190);
+    box-shadow: 0 4px 12px rgba(30, 94, 190, 0.25);
+}
+
+.my-cards nav a div:active {
+    background-color: rgb(24, 81, 167);
+    transform: translateY(0) scale(0.98);
+    box-shadow: none;   
+}
+
+.cards {
+}
+
+.cards .card1 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: brown;
+    margin-left: 10px;
+    
+}
+
+.cards .card2 {
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: blue;
+    padding-top: 20px   ;
+}
