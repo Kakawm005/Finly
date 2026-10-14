@@ -1,10 +1,12 @@
 .card {
-    width: 325px;
-    height: 175px;
+    min-width: 0;
     margin: 10px;
+    padding: 20px 10px 20px 0;
     border-radius: 20px;
     background-color: white;
     display: flex;
+    justify-content: space-between;
+    gap: 8px;
 }
 
 .card a {
@@ -12,33 +14,33 @@
 }
 
 .nav-money {
-    width: 230px;
-    height: 175px;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
-.btn{
+.btn {
     height: 50px;
     width: 50px;
-    margin: 15px 0px 0px 30px;
+    margin: 0 0 0 auto;
 }
 
 .card-name {
-    margin: 30px 0px 0px 25px;
+    margin: 10px 0 0 25px;
     font-size: 18px;
-    color:  rgb(92, 92, 92);
+    color: rgb(92, 92, 92);
 }
 
-.link{
+.link {
     height: 50px;
     width: 50px;
-    padding: 0px 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 100%;
     border: 1px solid black;
-    font-size: 35px;
+    font-size: 30px;
     color: black;
-    transition: background-color 0.25s ease,
-              transform 0.25s ease,
-              box-shadow 0.25s ease;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .link:hover {
@@ -53,13 +55,23 @@
 }
 
 .card-value {
-    margin: 40px 0px 0px 25px;
-    font-size: 50px;
+    margin: 30px 0 0 25px;
+    font-size: clamp(26px, 2.4vw, 40px);
+    white-space: nowrap;
+    
 }
 
 .card-percentage {
-    margin: 60px 0px 0px 30px;
+    margin: 40px 0 0;
     border: 2px solid black;
     border-radius: 20px;
-    padding: 10px;
+    padding: 8px 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .card {
+        margin: 8px 10px;
+    }
 }

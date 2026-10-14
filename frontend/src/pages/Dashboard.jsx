@@ -1,6 +1,7 @@
 import Base from '../components/Base'
 import Card from '../components/Card'
 import MyCards from '../components/MyCards'
+import TotalBalance from '../components/TotalBalance'
 
 import './dashboard.css'
 
@@ -8,8 +9,8 @@ function Dashboard () {
     return (
         <>
         <Base>
-            <main>
-                <header>
+            <>
+                <header className='page-header'>
                     <h1>Dashboard</h1>
                 </header>
                 <div className='dashboard'>
@@ -20,15 +21,13 @@ function Dashboard () {
                             <Card name_card="Savings" value="9,800" percentage="1.8%"/> 
                         </div>
                         <div className='important-card'>
-                            <div className="total-balance">
-
-                            </div>
+                            <TotalBalance/>
                         </div>
                         
                     </div>
                     <MyCards/>
                 </div>
-            </main>
+            </>
         </Base>
         </>
     )
