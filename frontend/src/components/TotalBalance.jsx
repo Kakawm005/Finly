@@ -25,7 +25,7 @@ const PERIODS = {
     trimester: { label: 'Ultimos 3 meses', data: YEARLY.slice(9), year: 2025 },
 }
 
-const fmt = (n) => '$' + n.toLocaleString('en-US')
+const fmt = (n) => 'R$' + n.toLocaleString('en-US')
 
 function TotalBalance({ balance = 102489, variation = 1.77 }) {
     const [period, setPeriod] = useState('yearly')
@@ -43,33 +43,22 @@ function TotalBalance({ balance = 102489, variation = 1.77 }) {
         <section className="total-balance tb">
             <div className="tb-head">
                 <div>
-                    <p className="tb-title">Total Balance</p>
+                    <p className="tb-title">Saldo Total</p>
                     <div className="tb-amount">
-                        <h2>${balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
+                        <h2>R${balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
                         <span className="tb-badge">▲ {variation}</span>
                     </div>
                 </div>
                 <div className="tb-actions">
                     <div className="tb-select">
-                        <button
-                            type="button"
-                            className="tb-pill"
-                            aria-haspopup="listbox"
-                            aria-expanded={open}
-                            onClick={() => setOpen((o) => !o)}
-                        >
+                        <button type="button" className="tb-pill" aria-haspopup="listbox" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
                             {PERIODS[period].label} <span className="tb-chevron">⌄</span>
                         </button>
                         {open && (
                             <ul className="tb-menu" role="listbox">
                                 {Object.entries(PERIODS).map(([key, p]) => (
                                     <li key={key}>
-                                        <button
-                                            type="button"
-                                            role="option"
-                                            aria-selected={key === period}
-                                            onClick={() => { setPeriod(key); setHover(null); setOpen(false) }}
-                                        >
+                                        <button type="button" role="option" aria-selected={key === period} onClick={() => { setPeriod(key); setHover(null); setOpen(false) }}>
                                             {p.label}
                                         </button>
                                     </li>

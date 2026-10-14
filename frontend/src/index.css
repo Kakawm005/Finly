@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
 
+html,
+body,
+#root {
+    overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,8 +17,8 @@ html {
 body {
   margin: 0;
   padding: 12px;
-  background-color: rgb(255, 255, 255);
-  font-family: 'Inter', sans-serif;
+  background-color: rgb(202, 202, 202);
+  font-family: 'Sora', 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
@@ -26,7 +32,6 @@ img {
   min-height: calc(100vh - 24px);
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  box-shadow: 11px 9px 21px 6px rgba(0, 0, 0, 0.8);
   overflow: hidden;
 }
 
@@ -88,6 +93,8 @@ img {
 }
 
 .main-content {
+  height: 100vh;
+  overflow-y: auto;
   flex: 1 1 0;
   min-width: 0;
   background-color: rgb(243, 243, 243);

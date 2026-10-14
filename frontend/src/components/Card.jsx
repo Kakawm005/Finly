@@ -6,7 +6,7 @@ function Card ({name_card, value, percentage}) {
         <section className='card'>
             <div className='nav-money'>
                 <p className='card-name'>{name_card}</p>
-                <p className='card-value'>${value}</p>
+                <p className='card-value'>R${value}</p>
             </div>
             <div>
                 <div className='btn'>

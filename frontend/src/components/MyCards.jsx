@@ -5,8 +5,8 @@ function MyCards () {
         <>
         <div className='my-cards'>
             <nav>
-                <h2>My Cards</h2>
-                <a href=''><div className="add-cards">+ Add Card</div></a>
+                <h2>Meus Cartões</h2>
+                <a href=''><div className="add-cards">+ Novo Cartão</div></a>
             </nav>
             <div className='cards'>
                 <div className="card1">
