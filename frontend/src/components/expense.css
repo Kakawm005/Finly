@@ -1,0 +1,29 @@
+.expense {
+    padding: 7px;
+}
+
+.total-bar {
+    max-width: 700px;
+    height: 17px;
+    background-color: rgb(90, 90, 90);
+    border-radius: 10px;
+}
+
+.progress {
+    max-width: 700px;
+    height: 17px;
+    border-radius: 10px;
+}
+
+.expense-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.expense-text strong {
+    white-space: nowrap;
+}

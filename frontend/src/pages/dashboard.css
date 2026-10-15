@@ -23,13 +23,21 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.total-balance {
+.total-expenses {
     grid-column: 1 / -1;
     width: auto;
-    margin: 10px;
+    margin: 10px 5px 5px 5px;
     border-radius: 20px;
     background-color: white;
+    padding: 24px 24px 20px;
+    min-height: 0;
+    color: var(--ink);
 }
+
+.total-expenses p {
+    color: rgb(116, 116, 116);
+}
+
 
 @media (max-width: 1300px) {
     .dashboard {

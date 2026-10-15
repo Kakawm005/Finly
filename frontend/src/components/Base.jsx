@@ -1,4 +1,5 @@
 import logo from '../assets/logo1-removebg-preview.png'
+import './base.css'
 
 function Base({ children }) {
     return (

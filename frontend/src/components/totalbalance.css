@@ -120,6 +120,17 @@
     background: rgb(240, 240, 255);
 }
 
+.total-balance {
+    grid-column: 1 / -1;
+    width: auto;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 24px 24px 20px;
+    min-height: 0;
+    color: var(--ink);
+}
+
 /* ---------- gráfico ---------- */
 .tb-chart {
     display: grid;
