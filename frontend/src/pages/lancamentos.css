@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
-
 nav {
     padding: 20px;
 }
@@ -38,6 +36,14 @@ nav {
     font-family: 'Sora', 'Inter', sans-serif;
 }
 
+.search input:hover {
+    background-color: rgb(157, 190, 223);
+}
+
+.search input:active {
+    background-color: rgb(46, 111, 177);;
+}
+
 .releases-type {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -66,4 +72,12 @@ nav {
     padding: 7px;
     border: 1px solid rgb(177, 177, 177);
     font-family: 'Sora', 'Inter', sans-serif;
+}
+
+.period-status div select:hover {
+    background-color: rgb(157, 190, 223);
+}
+
+.period-status div select:active {
+    background-color: rgb(46, 111, 177);
 }

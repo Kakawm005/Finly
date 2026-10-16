@@ -1,0 +1,66 @@
+.new-releases {
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    background-color: white;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+button {
+    font-family: 'Sora', 'Inter', sans-serif;
+    width: 150px;
+    background: #eee;
+    color: #222;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background: #799dec;
+}
+
+button:active {
+    background: #2563eb;
+}
+
+button.ativo {
+    background: #2563eb;
+    color: white;
+}
+
+.form-release {
+    margin: 20px;
+}
+
+.form-release div {
+    margin: 20px;
+}
+
+.form-release div input {
+    font-family: 'Sora', 'Inter', sans-serif;
+    width: 100%;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+}
+
+.form-release button {
+    background: #2563eb;
+    color: white;
+}
+
+.form-release button:hover {
+    background: #1945a5;
+    color: white;
+}
+
+.form-release button:active {
+    background: #102b66;
+    color: white;
+}
