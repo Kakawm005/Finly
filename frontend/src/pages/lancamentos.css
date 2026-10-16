@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+
+nav {
+    padding: 20px;
+}
+
+.releases {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.releases div{
+    max-width: 100%;
+    background-color: white;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.releases-search {
+    max-width: 100%;
+    background-color: white;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.search input{
+    width: 100%;
+    height: 40px;
+    border: 0px;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 20px;
+    background-color: rgb(236, 236, 236);
+    border: 1px solid rgb(190, 190, 190);
+    font-family: 'Sora', 'Inter', sans-serif;
+}
+
+.releases-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin: 20px;
+}
+
+
+.releases-type input {
+    margin-right: 10px;
+    height: 17px;
+    width: 17px;
+}
+
+.period-status {
+    display: flex;
+    justify-content: center;
+
+}
+
+.period-status div {
+    margin: 20px;
+}
+
+.period-status div select {
+    border-radius: 20px;
+    padding: 7px;
+    border: 1px solid rgb(177, 177, 177);
+    font-family: 'Sora', 'Inter', sans-serif;
+}
