@@ -9,7 +9,7 @@ import Categorias from './pages/Categorias'
 function App() {
   return (
     <>
-    <Categorias/>
+    <Dashboard/>
     </>
   )
 }
