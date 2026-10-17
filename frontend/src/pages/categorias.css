@@ -1,0 +1,66 @@
+nav {
+    padding: 20px;
+}
+
+.categories {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.categories header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.categories header h2{
+    margin: 0px;
+}
+
+.categories header button {
+    width: 80px;
+    margin: 0px;
+    color: white;
+    border-radius: 20px;
+    padding: 7px 12px 7px 12px;
+    font-size: 14px;
+    background-color: rgb(18, 81, 175);
+}
+
+.categories header button:hover {
+    background-color: rgb(13, 60, 131);
+}
+
+.categories header button:active {
+    background-color: rgb(10, 46, 100);
+}
+
+.categories-content {
+    display: flex;
+    justify-content: center;
+}
+
+.categories-content div {
+    width: 250px;
+    height: 175px;
+    border-radius: 20px;
+    margin: 20px;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.categories-content div:hover {
+    background-color: rgb(18, 81, 175);
+    color: white;
+}
+
+.categories-content div h4 {
+    font-size: 35px;
+    margin: 0 auto;
+}

@@ -1,8 +1,15 @@
 import Base from '../components/Base'
+import dayjs from '../lib/dayjs'
 
 import './lancamentos.css'
 
 function Lancamentos() {
+
+    function mes() {
+        const mes = dayjs().format('MMMM')
+        return mes
+    }
+
     return (
         <>
         <Base>
@@ -10,12 +17,12 @@ function Lancamentos() {
                 <h1>Lançamentos</h1>
             </nav>
             <section className='releases'>
-                <div>
-                    <h2>Receitas do mes</h2>
+                <div className='income'>
+                    <h2>Receitas de {mes()}</h2>
                     <p>R$600</p>
                 </div>
-                <div>
-                    <h2>Despesas do mes</h2>
+                <div className='expense'>
+                    <h2>Despesas de {mes()}</h2>
                     <p>R$600</p>
                 </div>
             </section>

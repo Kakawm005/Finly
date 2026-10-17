@@ -81,3 +81,13 @@ nav {
 .period-status div select:active {
     background-color: rgb(46, 111, 177);
 }
+
+.income p{
+    font-size: 40px;
+    color: chartreuse;
+}
+
+.expense p{
+    font-size: 40px;
+    color: red;
+}
