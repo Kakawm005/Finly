@@ -41,7 +41,8 @@ class Transaction(models.Model):
     )
     category = models.ForeignKey(
         Category, 
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
+        related_name="category"
     )
     value = models.DecimalField(default=0.00, max_digits=12, decimal_places=2)
     date_time_create = models.DateTimeField(auto_created=True)

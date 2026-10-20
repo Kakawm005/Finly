@@ -8,7 +8,7 @@ function Card ({name_card, value, percentage}) {
                 <div className='card-name'>
                     <p>{name_card}</p>
                 </div>
-                <p className='card-value'>R${value}</p>
+                <p className='card-value'>{value}</p>
             </div>
             <div>
                 <div className='btn'>
