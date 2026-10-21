@@ -6,48 +6,47 @@ import Expense from '../components/Expense'
 import dayjs from '../lib/dayjs'
 
 import { useEffect, useState } from "react";
-import { getDashboard } from "../api/dashboard";
+import { apiGet } from "../api/api";
+import { useParams } from "react-router-dom";
+
 
 import './dashboard.css'
 
 function Dashboard () {
 
+    const { id } = useParams();
 
-  const [dashboard, setDashboard] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [dados, setDados] = useState(null);
+    const [erro, setErro] = useState("");
+    const [carregando, setCarregando] = useState(true);
 
-  useEffect(() => {
-    async function loadDashboard() {
-      try {
-        const data = await getDashboard(1);
-        setDashboard(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+    useEffect(() => {
+      async function carregarDados() {
+        try {
+          const resultado = await apiGet(`/dashboard/${id}`);
+          setDados(resultado);
+        }catch (error) {
+          setErro(error.menssage);
+        } finally {
+          setCarregando(false)
+        }
       }
+
+      carregarDados();
+    }, []);
+
+
+      if (carregando) {
+    return <p>Carregando dashboard...</p>;
     }
 
-    loadDashboard();
-  }, []);
 
-  if (loading) return <p>Carregando dashboard...</p>;
-  if (error) return <p>Erro: {error}</p>;
-  if (!dashboard) return <p>Nenhum dado disponível.</p>;
-
-  const { Account, Categorys, Movement } = dashboard;
-
-  const formatCurrency = (value) =>
-    Number(value).toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-
-    function mes() {
-        const mes = dayjs().format('MMMM')
-        return mes
+    if (erro) {
+      return <p>Erro ao carregar: {erro}</p>;
     }
+
+
+    const mes = () => dayjs().format('MMMM');
 
     return (
         <>
@@ -58,11 +57,11 @@ function Dashboard () {
             <div className='dashboard'>
                 <div className='content-card'>
                     <div className='important-card'>
-                        <Card name_card={`Receitas de ${mes()}`} value={formatCurrency(Movement.total_expenses)} percentage="7.1%"/> 
-                        <Card name_card={`Despesas de ${mes()}`} value={formatCurrency(Movement.total_despenses)} percentage="2.3%"/> 
-                        <Card name_card={`Poupado em ${mes()}`} value={formatCurrency(Movement.savings)} percentage="1.8%"/> 
+                        <Card name_card={`Receitas de ${mes()}`} value={Number(dados?.Movement?.total_expenses ?? 0).toLocaleString("pt-BR", {style: "currency", currency: "BRL"})} percentage="7.1%"/> 
+                        <Card name_card={`Despesas de ${mes()}`} value={Number(dados?.Movement?.total_despenses ?? 0).toLocaleString("pt-BR", {style: "currency", currency: "BRL"})} percentage="2.3%"/> 
+                        <Card name_card={`Poupado em ${mes()}`} value={Number(dados?.Movement?.savings ?? 0).toLocaleString("pt-BR", {style: "currency", currency: "BRL"})} percentage="1.8%"/> 
                     </div>
-                    <TotalBalance balance={formatCurrency(Account.total_balance)}/>
+                    <TotalBalance balance={Number(dados?.Account?.total_balance ?? 0).toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}/>
                     <div className='total-expenses'>
                         <h2>Onde você gastou</h2>
                         <p>Despesas efetivadas no mês de {mes()}</p>

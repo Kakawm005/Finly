@@ -45,7 +45,7 @@ function TotalBalance({ balance = 102489, variation = 1.77 }) {
                 <div>
                     <p className="tb-title">Saldo Total</p>
                     <div className="tb-amount">
-                        <h2>R${balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
+                        <h2>{balance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h2>
                         <span className="tb-badge">▲ {variation}</span>
                     </div>
                 </div>
