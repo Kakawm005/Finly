@@ -42,13 +42,17 @@ class DashboardView(RetrieveAPIView):
 
             categorys[transaction.category.name]["value"] += transaction.value
 
-        totaldespenses_totalexpenses["movement"]["savings"] = totaldespenses_totalexpenses["movement"]["total_expenses"] -categorys[transaction.category.name]["value"]
+        totaldespenses_totalexpenses["movement"]["savings"] = totaldespenses_totalexpenses["movement"]["total_expenses"] - categorys[transaction.category.name]["value"]
 
 
         return Response(
             {"Account": serializer.data,
             "Categorys": categorys,
-            "Movement": totaldespenses_totalexpenses
+            "Movement": {
+                "total_expenses": totaldespenses_totalexpenses["movement"]["total_expenses"],
+                "total_despenses" : totaldespenses_totalexpenses["movement"]["total_despenses"],
+                "savings": totaldespenses_totalexpenses["movement"]["savings"]
+                        }
             },
             status=status.HTTP_200_OK
             )

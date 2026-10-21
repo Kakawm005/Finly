@@ -1,3 +1,5 @@
+import { BrowserRouter, Router, Route } from "react-router-dom";
+
 import './App.css'
 import Dashboard from './pages/Dashboard'
 import Lancamentos from './pages/Lancamentos'
@@ -8,9 +10,15 @@ import Categorias from './pages/Categorias'
 
 function App() {
   return (
-    <>
-    <Dashboard/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="" element=""/>
+        <Route path="" element=""/>
+        <Route path="" element=""/>
+        <Route path="" element=""/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

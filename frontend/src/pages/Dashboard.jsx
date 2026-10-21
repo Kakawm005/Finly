@@ -58,11 +58,11 @@ function Dashboard () {
             <div className='dashboard'>
                 <div className='content-card'>
                     <div className='important-card'>
-                        <Card name_card={`Receitas de ${mes()}`} value={formatCurrency(Movement.movement.total_expenses)} percentage="7.1%"/> 
-                        <Card name_card={`Despesas de ${mes()}`} value={formatCurrency(Movement.movement.total_despenses)} percentage="2.3%"/> 
-                        <Card name_card={`Poupado em ${mes()}`} value={formatCurrency(Movement.movement.savings)} percentage="1.8%"/> 
+                        <Card name_card={`Receitas de ${mes()}`} value={formatCurrency(Movement.total_expenses)} percentage="7.1%"/> 
+                        <Card name_card={`Despesas de ${mes()}`} value={formatCurrency(Movement.total_despenses)} percentage="2.3%"/> 
+                        <Card name_card={`Poupado em ${mes()}`} value={formatCurrency(Movement.savings)} percentage="1.8%"/> 
                     </div>
-                    <TotalBalance/>
+                    <TotalBalance balance={formatCurrency(Account.total_balance)}/>
                     <div className='total-expenses'>
                         <h2>Onde você gastou</h2>
                         <p>Despesas efetivadas no mês de {mes()}</p>
