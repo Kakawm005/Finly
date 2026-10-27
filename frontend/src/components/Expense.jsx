@@ -1,17 +1,23 @@
+import { useDashboard } from "../hooks/useDashboard";
+import { useParams } from "react-router-dom";
+
 import './expense.css'
 
 
-const despesas = [
-    { nome: 'Moradia', valor: 480, cor: '#3075e5' },
-    { nome: 'Alimentação', valor: 320, cor: '#e9a128' },
-    { nome: 'Transporte', valor: 180, cor: '#82a4c1' },
-    { nome: 'Lazer', valor: 160, cor: '#9b72d0' },
-    { nome: 'Outros', valor: 140, cor: '#8996a5' },
-];
-
-const maiorValor = Math.max(...despesas.map(d => d.valor))
-
 function Expense() {
+
+    const { id } = useParams();
+    const { dados, erro, carregando } = useDashboard(id);
+
+    const categorias = Object.values(dados?.Categorys ?? {});
+
+    const despesas = []
+
+    categorias.map((categoria, index) => (
+        despesas[index] = {nome: categoria.name, valor: categoria.value, cor: '#1b5cd4'}
+    ))
+
+    const maiorValor = Math.max(...despesas.map(d => d.valor))
 
     return (
         <>

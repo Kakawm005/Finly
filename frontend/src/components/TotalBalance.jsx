@@ -1,33 +1,48 @@
 import { useState } from 'react'
 import './totalbalance.css'
 
+import { useDashboard } from "../hooks/useDashboard";
+import { useParams } from "react-router-dom";
+
 const MAX = 7500
 const TICKS = [7500, 6000, 4500, 3000, 1500, 0]
 
-const YEARLY = [
-    { month: 'Jan', value: 2400, pct: 16 },
-    { month: 'Fev', value: 3800, pct: 21 },
-    { month: 'Mar', value: 1500, pct: 36 },
-    { month: 'Abr', value: 700, pct: 19 },
-    { month: 'Maio', value: 2100, pct: 25 },
-    { month: 'Jun', value: 5980, pct: 14 },
-    { month: 'Jul', value: 2700, pct: 8 },
-    { month: 'Ago', value: 4500, pct: 11 },
-    { month: 'Set', value: 6600, pct: 9 },
-    { month: 'Out', value: 3700, pct: 20 },
-    { month: 'Nov', value: 1800, pct: 7 },
-    { month: 'Dez', value: 700, pct: 4 },
-]
 
-const PERIODS = {
-    yearly: { label: 'Ano', data: YEARLY, year: 2025 },
-    semester: { label: 'Ultimos 6 meses', data: YEARLY.slice(6), year: 2025 },
-    trimester: { label: 'Ultimos 3 meses', data: YEARLY.slice(9), year: 2025 },
-}
-
-const fmt = (n) => 'R$' + n.toLocaleString('en-US')
+const fmt = (n) => 'R$' + (n ?? 0).toLocaleString('pt-BR')
 
 function TotalBalance({ balance = 102489, variation = 1.77 }) {
+
+    // pegar dados da api
+    const { id } = useParams();
+    const { dados, erro, carregando } = useDashboard(id);
+
+
+    const getBarHeight = (value) => {
+    const numericValue = Number(value) || 0;
+    return Math.min(Math.max(numericValue / MAX, 0), 1);
+    };
+
+    const YEARLY = [
+        { month: 'Jan', value: dados?.Movement?.despenses_year?.Jan?.value},
+        { month: 'Fev', value: dados?.Movement?.despenses_year?.Fev?.value},
+        { month: 'Mar', value: dados?.Movement?.despenses_year?.Mar?.value},
+        { month: 'Abr', value: dados?.Movement?.despenses_year?.Abr?.value},
+        { month: 'Maio', value: dados?.Movement?.despenses_year?.Maio?.value},
+        { month: 'Jun', value: dados?.Movement?.despenses_year?.Jun?.value},
+        { month: 'Jul', value: dados?.Movement?.despenses_year?.Jul?.value},
+        { month: 'Ago', value: dados?.Movement?.despenses_year?.Ago?.value},
+        { month: 'Set', value: dados?.Movement?.despenses_year?.Set?.value},
+        { month: 'Out', value: dados?.Movement?.despenses_year?.Out?.value},
+        { month: 'Nov', value: dados?.Movement?.despenses_year?.Nov?.value},
+        { month: 'Dez', value: dados?.Movement?.despenses_year?.Dez?.value},
+    ]
+
+    const PERIODS = {
+        yearly: { label: 'Ano', data: YEARLY, year: 2025 },
+        semester: { label: 'Ultimos 6 meses', data: YEARLY.slice(6), year: 2025 },
+        trimester: { label: 'Ultimos 3 meses', data: YEARLY.slice(9), year: 2025 },
+    }
+
     const [period, setPeriod] = useState('yearly')
     const [open, setOpen] = useState(false)
     const { data, year } = PERIODS[period]
@@ -80,7 +95,7 @@ function TotalBalance({ balance = 102489, variation = 1.77 }) {
                 <div className="tb-plot" onMouseLeave={() => setHover(null)}>
                     <div
                         className="tb-guide"
-                        style={{ '--p': current.value / MAX }}
+                        style={{ '--p': getBarHeight(current.value) }}
                         aria-hidden="true"
                     />
                     <div className="tb-bars" style={{ '--n': data.length }}>
@@ -91,17 +106,16 @@ function TotalBalance({ balance = 102489, variation = 1.77 }) {
                                     <button
                                         type="button"
                                         className={`tb-bar-wrap${i === active ? ' is-active' : ''}`}
-                                        style={{ '--p': d.value / MAX }}
+                                        style={{ '--p': getBarHeight(d.value) }}
                                         onMouseEnter={() => setHover(i)}
                                         onFocus={() => setHover(i)}
                                         onClick={() => setHover(i)}
-                                        aria-label={`${d.month}: ${fmt(d.value)} (${d.pct}%)`}
+                                        aria-label={`${d.month}: ${fmt(d.value)}`}
                                     >
-                                        <span className="tb-pct">+{d.pct}%</span>
                                         <span className="tb-bar" />
                                         {i === active && (
                                             <span className={`tb-tooltip ${edge}`} role="status">
-                                                <strong>{fmt(d.value)} ({d.pct}%)</strong>
+                                                <strong>{fmt(d.value)}</strong>
                                                 <small>{d.month === 'Jun' ? 'June' : d.month} {year}</small>
                                             </span>
                                         )}

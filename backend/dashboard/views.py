@@ -14,18 +14,18 @@ class DashboardView(RetrieveAPIView):
     def retrieve(self, request, *args, **kwargs):
         serializer = self.get_serializer(self.get_object())
         meses = {
-            "Jan": {"value": 0, "pct": 16},
-            "Fev": {"value": 0, "pct": 21},
-            "Mar": {"value": 0, "pct": 36},
-            "Abr": {"value": 0, "pct": 19},
-            "Maio": {"value": 0, "pct": 25},
-            "Jun": {"value": 0, "pct": 14},
-            "Jul": {"value": 0, "pct": 8},
-            "Ago": {"value": 0, "pct": 11},
-            "Set": {"value": 0, "pct": 9},
-            "Out": {"value": 0, "pct": 20},
-            "Nov": {"value": 0, "pct": 7},
-            "Dez": {"value": 0, "pct": 4},
+            "Jan": {"value": 0},
+            "Fev": {"value": 0},
+            "Mar": {"value": 0},
+            "Abr": {"value": 0},
+            "Maio": {"value": 0},
+            "Jun": {"value": 0},
+            "Jul": {"value": 0},
+            "Ago": {"value": 0},
+            "Set": {"value": 0},
+            "Out": {"value": 0},
+            "Nov": {"value": 0},
+            "Dez": {"value": 0},
         }
 
         nomes_meses = {
@@ -55,36 +55,30 @@ class DashboardView(RetrieveAPIView):
                 transacao["total"] or 0
             )
 
-        transactions = Transaction.objects.filter(account_id=serializer.data["id"])
-        categorys = {}
+
         total_moviment = {}
+        total_moviment["movement"] = {"total_expenses" : 0, "total_despenses": 0, "savings": 0}
 
-        total_moviment["movement"] = {
-            "total_expenses" : 0,
-            "total_despenses": 0,
-            "savings": 0
-        }
-
-        for transaction in transactions:
+        for transaction in Transaction.objects.filter(account_id=serializer.data["id"]):
             if transaction.category.type == "DE":
                 total_moviment["movement"]["total_despenses"] += transaction.value
                 
             elif transaction.category.type == "RE":
                 total_moviment["movement"]["total_expenses"] += transaction.value
 
-
+        categorys = {}
+        for transaction in Transaction.objects.filter(account_id=serializer.data["id"], category_id__type="DE",).order_by("value"):
             if transaction.category.name not in categorys:
                 categorys[transaction.category.name] = {
                     "name": transaction.category.name,
                     "value": 0,
                     "type": transaction.category.type,
                     }
-
             categorys[transaction.category.name]["value"] += transaction.value
 
-        total_moviment["movement"]["savings"] = total_moviment["movement"]["total_expenses"] - categorys[transaction.category.name]["value"]
 
-
+        
+        total_moviment["movement"]["savings"] = total_moviment["movement"]["total_expenses"] - total_moviment["movement"]["total_despenses"]
         return Response(
             {"Account": serializer.data,
             "Categorys": categorys,
@@ -93,7 +87,9 @@ class DashboardView(RetrieveAPIView):
                 "total_despenses" : total_moviment["movement"]["total_despenses"],
                 "savings": total_moviment["movement"]["savings"],
                 "despenses_year": meses
-                        }
+                        },
             },
             status=status.HTTP_200_OK
             )
+
+
