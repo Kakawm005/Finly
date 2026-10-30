@@ -19,11 +19,11 @@ from django.urls import path
 from user.views import RegisterView
 
 from dashboard.views import DashboardView
-from category.views import CategoryView
+from releases.views import ReleasesView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', RegisterView.as_view(), name="registerview"),
     path('dashboard/<int:pk>/', DashboardView.as_view(), name="dashboardview"),
-    path('category/<int:pk>/', CategoryView.as_view(), name="categoryview" )
+    path('releases/<int:pk>/', ReleasesView.as_view(), name="releasesview" )
 ]
