@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'dashboard',
     'user',
     'finance',
-
+    'releases',
 
     'rest_framework',
     "corsheaders",

@@ -22,6 +22,10 @@ class Category(models.Model):
         RECEITA = "RE", "Receita"
         DESPESA = "DE", "Despesa"
 
+    account = models.ForeignKey(
+        Account,
+        on_delete=models.CASCADE
+    )
 
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=2, choices=Type.choices)
