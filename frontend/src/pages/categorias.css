@@ -64,3 +64,30 @@ nav {
     font-size: 35px;
     margin: 0 auto;
 }
+
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: calc(100% - 32px);
+    text-align: center;
+}
+
+.modal input {
+    padding: 10px 80px 10px 10px;
+    border-radius: 20px;
+}

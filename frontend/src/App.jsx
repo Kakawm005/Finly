@@ -15,7 +15,7 @@ function App() {
       <Route path="/lancamentos" element={<Lancamentos />} />
       <Route path="/novolancamento" element={<NovoLancamento />} />
       <Route path="/contas" element={<Contas />} />
-      <Route path="/categorias" element={<Categorias />} />
+      <Route path="/categorias/:id" element={<Categorias />} />
     </Routes>
   )
 }
