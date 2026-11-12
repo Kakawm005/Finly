@@ -40,7 +40,7 @@ function Categorias () {
                                         />
 
                                         <div>
-                                            <button onClick={() => setModalAberto(false)}>
+                                            <button onClick={() => setnewCategory(false)}>
                                                 Cancelar
                                             </button>
 
