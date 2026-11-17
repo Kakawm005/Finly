@@ -1,0 +1,161 @@
+
+# ==========================================
+# PYTHON
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.python-version
+
+# ==========================================
+# DJANGO
+# ==========================================
+
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Arquivos de mídia enviados pelos usuários
+/media/
+
+# Arquivos estáticos coletados (gerados pelo collectstatic)
+/staticfiles/
+
+# ==========================================
+# AMBIENTES VIRTUAIS
+# ==========================================
+
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==========================================
+# VARIÁVEIS DE AMBIENTE E SEGREDOS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Chaves e certificados privados
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ==========================================
+# BANCO DE DADOS
+# ==========================================
+
+*.sqlite3
+*.sqlite3-journal
+*.db
+
+# ==========================================
+# TESTES E COBERTURA
+# ==========================================
+
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+coverage.xml
+nosetests.xml
+test-results/
+junit.xml
+
+# ==========================================
+# TYPE CHECKING E LINT
+# ==========================================
+
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.ruff_cache/
+.pytype/
+
+# ==========================================
+# DJANGO MIGRATIONS
+# ==========================================
+
+# NÃO ignorar migrations!
+# As migrations devem subir para o GitHub.
+# Mantenha os arquivos __init__.py e *.py.
+
+# ==========================================
+# IDEs E EDITORES
+# ==========================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ==========================================
+# SISTEMA OPERACIONAL
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ==========================================
+# BUILD E DISTRIBUIÇÃO
+# ==========================================
+
+build/
+dist/
+.eggs/
+*.egg
+*.egg-info/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# ==========================================
+# DOCUMENTAÇÃO GERADA
+# ==========================================
+
+docs/_build/
+site/
+
+# ==========================================
+# CELERY E TASK QUEUES
+# ==========================================
+
+celerybeat-schedule
+celerybeat.pid
+
+# ==========================================
+# JUPYTER NOTEBOOK
+# ==========================================
+
+.ipynb_checkpoints/
+
+# ==========================================
+# CACHE E ARQUIVOS TEMPORÁRIOS
+# ==========================================
+
+.cache/
+.pytest_cache/
+tmp/
+temp/
+*.tmp
+*.bak

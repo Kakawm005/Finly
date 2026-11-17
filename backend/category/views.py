@@ -1,9 +1,9 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from .serializers import CategorySerializer
 from user.models import Category
 from rest_framework.response import Response
 
-class CategoryView(RetrieveUpdateDestroyAPIView):
+class CategoryView(ListCreateAPIView):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
